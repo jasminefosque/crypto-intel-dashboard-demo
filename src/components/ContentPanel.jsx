@@ -1,4 +1,4 @@
-import { getCurrentMarketData, CRYPTO_ASSETS, generateHistoricalData } from '../utils/mockData';
+import { getCurrentMarketData, CRYPTO_ASSETS } from '../utils/mockData';
 import MarketCard from './MarketCard';
 import PriceChart from './PriceChart';
 import './ContentPanel.css';

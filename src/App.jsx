@@ -7,15 +7,13 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
-  const [marketData, setMarketData] = useState(() => getCurrentMarketData());
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [activeNode, setActiveNode] = useState(null);
 
   // Simulate real-time updates every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      const updatedData = getCurrentMarketData();
-      setMarketData(updatedData);
+      getCurrentMarketData(); // Keep data fresh
       setLastUpdate(new Date());
     }, 5000);
 
