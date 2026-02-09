@@ -1,21 +1,13 @@
 import { useState, useEffect } from 'react';
-import { getCurrentMarketData, CRYPTO_ASSETS, getRealtimePriceUpdate } from './utils/mockData';
+import { getCurrentMarketData, CRYPTO_ASSETS } from './utils/mockData';
 import MarketCard from './components/MarketCard';
 import PriceChart from './components/PriceChart';
 import Footer from './components/Footer';
 import './App.css';
 
 function App() {
-  const [marketData, setMarketData] = useState([]);
-  const [selectedAsset, setSelectedAsset] = useState(null);
+  const [marketData, setMarketData] = useState(() => getCurrentMarketData());
   const [lastUpdate, setLastUpdate] = useState(new Date());
-
-  // Initialize market data
-  useEffect(() => {
-    const data = getCurrentMarketData();
-    setMarketData(data);
-    setSelectedAsset(CRYPTO_ASSETS[0]); // Default to BTC
-  }, []);
 
   // Simulate real-time updates every 5 seconds
   useEffect(() => {
